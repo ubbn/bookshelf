@@ -16,13 +16,13 @@ class SearchBooks extends React.Component {
   // Check what is the shelf status of book found in search
   // search it from each status of shelf by id
   getStatus(book){
-    const statuses = ['currentlyReading', 'wantToRead', 'read']
-    statuses.forEach(status => {
-      if (this.props.booksOnShelf[status].find(x => x.id === book.id))
-        return status
+    let status = 'none'
+    const shelves = ['currentlyReading', 'wantToRead', 'read']
+    shelves.forEach(shelfName => {
+      if (this.props.booksOnShelf[shelfName].find(x => x.id === book.id))
+        status = shelfName
     })
-
-    return 'none'
+    return status
   }
 
   search(e) {
