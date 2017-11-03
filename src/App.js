@@ -24,7 +24,7 @@ class BooksApp extends React.Component {
         {
           title: 'Reading Now',
           imageLinks: {
-            smallThumbnail: 'http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api'
+            smallThumbnail: 'http://books.google.com/books/content?id=D44dBAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api'
           },
           authors: [
             'BBN', 'CNN'
@@ -36,7 +36,7 @@ class BooksApp extends React.Component {
         {
           title: 'Want To Read',
           imageLinks: {
-            smallThumbnail: 'http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api'
+            smallThumbnail: 'http://books.google.com/books/content?id=F6B_xHO-IpoC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api'
           },
           authors: [
             'BBN', 'CNN'
@@ -48,7 +48,7 @@ class BooksApp extends React.Component {
         {
           title: 'Book I read',
           imageLinks: {
-            smallThumbnail: 'http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api'
+            smallThumbnail: 'http://books.google.com/books/content?id=l8m8DQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api'
           },
           authors: [
             'WWW', 'OOP'
@@ -60,13 +60,13 @@ class BooksApp extends React.Component {
   }
 
   onBookMoved(book, newStatus, oldStatus){
-    // alert('From: ' + oldStatus + ', to: ' + newStatus + ', id: ' + book.id)
-
+    // Add the book to shelf based on new status
     if (newStatus !== 'none')
       this.setState((prevState) => ({
         [newStatus]: prevState[newStatus].concat([book])
       }))
-    
+
+    // Remove the book from shelf
     if (oldStatus !== 'none')
       this.setState((prevState) => ({
         [oldStatus]: prevState[oldStatus].filter(x => x.id !== book.id)
