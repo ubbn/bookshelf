@@ -11,7 +11,7 @@ const BookShelf = (props) => {
             <Book key={book.id} 
               book={book}
               status={props.status}
-              onBookMoved={(status) => props.onBookMoved(status, book)}
+              onBookMoved={props.onBookMoved}
             />
           ))}
         </ol>

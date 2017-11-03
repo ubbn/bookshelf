@@ -6,21 +6,6 @@ class BookShelfChanger extends React.Component {
     this.selectionChanged = this.selectionChanged.bind(this)
   }
 
-  selectOptions = [
-    {
-      value: 'currentlyReading',
-      label: 'Currently Reading'
-    },
-    {
-      value: 'wantToRead',
-      label: 'Want to Read'
-    },
-    {
-      value: 'read',
-      label: 'Read'
-    }
-  ]
-
   selectionChanged(e){
     if (this.props.onMove)
       this.props.onMove(e.target.value)
@@ -29,14 +14,12 @@ class BookShelfChanger extends React.Component {
   render(){
     return (
       <div className="book-shelf-changer">
-        <select onChange={this.selectionChanged}>
+        <select onChange={this.selectionChanged} value={this.props.status}>
           <option value="none" disabled>Move to...</option>
-          {this.selectOptions.map(option => (
-            <option value={option.value}
-              selected={this.props.status === option.value}>{option.label}
-            </option>
-          ))}
-          <option value="none" selected={!this.props.status}>None</option>
+          <option value="currentlyReading">Currently Reading</option>
+          <option value="wantToRead">Want to Read</option>
+          <option value="read">Read</option>
+          <option value="none">None</option>
         </select>
       </div>
     )
