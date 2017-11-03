@@ -12,7 +12,7 @@ class Book extends React.Component {
             width: 128, height: 193, 
             backgroundImage: `url("${book.imageLinks.smallThumbnail}")` }}>
           </div>
-          <ShelfChanger onMove={this.props.onBookMoved}/>
+          <ShelfChanger onMove={this.props.onBookMoved} status={this.props.status}/>
         </div>
         <div className="book-title">{book.title}</div>
         <div className="book-authors">{book.authors.join(', ')}</div>

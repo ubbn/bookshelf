@@ -51,9 +51,14 @@ class ListBooks extends React.Component {
             <BookShelf key={1} 
               title={'Currently Reading'} 
               books={this.state.reading} 
-              onBookMoved={this.onBookMoved}/>
-            <BookShelf key={2} title={'Want to Read'} books={this.state.reading} />
-            <BookShelf key={3} title={'Read'} books={this.state.reading} />
+              onBookMoved={this.onBookMoved}
+              status={'currentlyReading'}/>
+            <BookShelf key={2} title={'Want to Read'} 
+              books={this.state.reading}
+              status={'wantToRead'} />
+            <BookShelf key={3} title={'Read'} 
+              books={this.state.reading} 
+              status={'read'}/>
           </div>
         </div>
         <div className="open-search">
