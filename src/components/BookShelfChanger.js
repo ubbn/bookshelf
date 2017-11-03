@@ -1,6 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 class BookShelfChanger extends React.Component {
+  static propTypes = {
+    status: PropTypes.string,
+    onMove: PropTypes.func.isRequired
+  }
+
   constructor(){
     super()
     this.selectionChanged = this.selectionChanged.bind(this)

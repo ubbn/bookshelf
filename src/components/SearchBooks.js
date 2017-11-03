@@ -1,15 +1,23 @@
 import React from 'react'
-import * as BooksAPI from '../BooksAPI'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+
+import * as BooksAPI from '../BooksAPI'
 import Book from './Book'
 
 class SearchBooks extends React.Component {
+  static propTypes = {
+    booksOnShelf: PropTypes.object.isRequired,
+    onBookMoved: PropTypes.func.isRequired
+  }
+
   constructor(props){
     super(props)
 
     this.state = {
       books: []
     }
+
     this.search = this.search.bind(this)
   }
 

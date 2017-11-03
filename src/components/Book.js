@@ -1,19 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types'
+
 import ShelfChanger from './BookShelfChanger'
 
 class Book extends React.Component {
+  static propTypes = {
+    book: PropTypes.object.isRequired,
+    status: PropTypes.string,
+    onBookMoved: PropTypes.func.isRequired
+  }
+
   render() {
-    const { book } = this.props
+    const { book, status, onBookMoved } = this.props
 
     return(
       <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ 
-            width: 128, height: 193, 
+            width: 128, height: 193,
             backgroundImage: `url("${book.imageLinks.smallThumbnail}")` }}>
           </div>
-          <ShelfChanger status={this.props.status}
-            onMove={newStatus => this.props.onBookMoved(book, newStatus, this.props.status)}
+          <ShelfChanger status={!!status ? status : 'none'}
+            onMove={newStatus => onBookMoved(book, newStatus, this.props.status)}
           />
         </div>
         <div className="book-title">{book.title}</div>
