@@ -22,11 +22,15 @@ const BookShelf = (props) => {
   )
 }
 
-BookShelf.prototypes = {
+BookShelf.protoTypes = {
   title: PropTypes.string.isRequired,
   books: PropTypes.array.isRequired,
   status: PropTypes.string,
   onBookMoved: PropTypes.func.isRequired
+}
+
+BookShelf.defaultProps = {
+  books: []
 }
 
 export default BookShelf

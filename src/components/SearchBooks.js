@@ -55,7 +55,7 @@ class SearchBooks extends React.Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {this.state.books.map(book => (
+            {this.state.books instanceof Array && this.state.books.map(book => (
               <Book key={book.id}
                 book={book}
                 status={this.getStatus(book)}
