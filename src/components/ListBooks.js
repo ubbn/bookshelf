@@ -9,6 +9,10 @@ class ListBooks extends React.Component {
     booksOnShelf: PropTypes.object.isRequired,
     onBookMoved: PropTypes.func.isRequired
   }
+  
+  static defaultProps = {
+    booksOnShelf: []
+  }
 
   bookShelves = [{
       title: 'Currently Reading',

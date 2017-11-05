@@ -11,6 +11,10 @@ class SearchBooks extends React.Component {
     onBookMoved: PropTypes.func.isRequired
   }
 
+  static defaultProps = {
+    booksOnShelf: []
+  }
+
   constructor(props){
     super(props)
 

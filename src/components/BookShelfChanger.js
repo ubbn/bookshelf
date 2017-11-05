@@ -7,6 +7,10 @@ class BookShelfChanger extends React.Component {
     onMove: PropTypes.func.isRequired
   }
 
+  static defaultProps = {
+    status: 'none'
+  }
+
   constructor(){
     super()
     this.selectionChanged = this.selectionChanged.bind(this)
